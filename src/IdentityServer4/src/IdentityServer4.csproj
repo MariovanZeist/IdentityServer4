@@ -40,12 +40,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="IdentityModel" />
-
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-    <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" />
-
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="7.0.10" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" Version="1.1.1" />
   </ItemGroup>
 

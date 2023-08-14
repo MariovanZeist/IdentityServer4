@@ -18,6 +18,8 @@ using System.Threading.Tasks;
 
 namespace IdentityServer4.ResponseHandling
 {
+    using Microsoft.IdentityModel.Tokens;
+
     /// <summary>
     /// Default implementation of the discovery endpoint response generator
     /// </summary>
