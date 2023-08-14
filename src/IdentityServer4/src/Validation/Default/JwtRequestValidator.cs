@@ -2,11 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Threading.Tasks;
 using IdentityModel;
 using IdentityServer4.Configuration;
 using IdentityServer4.Extensions;
@@ -14,8 +9,11 @@ using IdentityServer4.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace IdentityServer4.Validation
 {
@@ -199,18 +197,20 @@ namespace IdentityServer4.Validation
                 if (!Constants.Filters.JwtRequestClaimTypesFilter.Contains(key))
                 {
                     var value = token.Payload[key];
-
                     switch (value)
                     {
                         case string s:
                             payload.Add(key, s);
                             break;
-                        case JObject jobj:
-                            payload.Add(key, jobj.ToString(Formatting.None));
+                        default:
+                            payload.Add(key, value.ToString());
                             break;
-                        case JArray jarr:
-                            payload.Add(key, jarr.ToString(Formatting.None));
-                            break;
+                        //case JObject jobj:
+                        //    payload.Add(key, jobj.ToString(Formatting.None));
+                        //    break;
+                        //case JArray jarr:
+                        //    payload.Add(key, jarr.ToString(Formatting.None));
+                        //    break;
                     }
                 }
             }

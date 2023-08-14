@@ -7,7 +7,6 @@ using System;
 using System.Security.Claims;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using static IdentityModel.ClaimComparer;
 
 #pragma warning disable 1591
 
@@ -15,11 +14,6 @@ namespace IdentityServer4.Stores.Serialization
 {
     public class ClaimConverter : JsonConverter<Claim>
     {
-        public override bool CanConvert(Type objectType)
-        {
-            return typeof(Claim) == objectType;
-        }
-
         public override Claim Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             var source = JsonSerializer.Deserialize<ClaimLite>(ref reader, options);
