@@ -41,7 +41,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.IdentityModel.Protocols" Version="6.32.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="7.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="7.0.13" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" Version="1.1.1" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.32.1" />
   </ItemGroup>
@@ -51,6 +51,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="MinVer" Version="4.2.0" />
+    <PackageReference Update="MinVer" Version="4.3.0" />
   </ItemGroup>
 </Project>
