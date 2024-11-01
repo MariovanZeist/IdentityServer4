@@ -14,7 +14,7 @@ namespace IdentityServer4.Models
             new[] { GrantType.Implicit };
 
         public static ICollection<string> ImplicitAndClientCredentials =>
-            new[]  { GrantType.Implicit, GrantType.ClientCredentials };
+            new[] { GrantType.Implicit, GrantType.ClientCredentials };
 
         public static ICollection<string> Code =>
             new[] { GrantType.AuthorizationCode };

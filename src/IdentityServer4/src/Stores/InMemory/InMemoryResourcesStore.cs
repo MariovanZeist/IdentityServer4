@@ -2,12 +2,12 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Extensions;
-using IdentityServer4.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IdentityServer4.Extensions;
+using IdentityServer4.Models;
 
 namespace IdentityServer4.Stores
 {
@@ -24,8 +24,8 @@ namespace IdentityServer4.Stores
         /// Initializes a new instance of the <see cref="InMemoryResourcesStore" /> class.
         /// </summary>
         public InMemoryResourcesStore(
-            IEnumerable<IdentityResource> identityResources = null, 
-            IEnumerable<ApiResource> apiResources = null, 
+            IEnumerable<IdentityResource> identityResources = null,
+            IEnumerable<ApiResource> apiResources = null,
             IEnumerable<ApiScope> apiScopes = null)
         {
             if (identityResources?.HasDuplicates(m => m.Name) == true)
@@ -37,7 +37,7 @@ namespace IdentityServer4.Stores
             {
                 throw new ArgumentException("Api resources must not contain duplicate names");
             }
-            
+
             if (apiScopes?.HasDuplicates(m => m.Name) == true)
             {
                 throw new ArgumentException("Scopes must not contain duplicate names");
@@ -99,7 +99,7 @@ namespace IdentityServer4.Stores
                 from x in _apiScopes
                 where scopeNames.Contains(x.Name)
                 select x;
-            
+
             return Task.FromResult(query);
         }
     }

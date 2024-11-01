@@ -67,7 +67,7 @@ namespace IdentityServer4.Infrastructure
             {
                 options.SetSlidingExpiration(Constants.DefaultCacheDuration);
             }
-            
+
             // Rather than encrypt the full AuthenticationProperties
             // cache the data and encrypt the key that points to the data
             Cache.SetString(cacheKey, json, options);

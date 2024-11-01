@@ -2,8 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Models;
 using System.Threading.Tasks;
+using IdentityServer4.Models;
 
 namespace IdentityServer4.Validation
 {
@@ -19,7 +19,7 @@ namespace IdentityServer4.Validation
         /// <param name="client">The client.</param>
         /// <returns><c>true</c> is the URI is valid; <c>false</c> otherwise.</returns>
         Task<bool> IsRedirectUriValidAsync(string requestedUri, Client client);
-        
+
         /// <summary>
         /// Determines whether a post logout URI is valid for a client.
         /// </summary>

@@ -25,7 +25,7 @@ namespace IdentityServer4.Events
                 ClientId = result.ValidatedRequest.Client?.ClientId;
                 ClientName = result.ValidatedRequest.Client?.ClientName;
                 Scopes = result.ValidatedRequest.RequestedScopes?.ToSpaceSeparatedString();
-                
+
             }
 
             Endpoint = Constants.EndpointNames.DeviceAuthorization;
@@ -75,7 +75,7 @@ namespace IdentityServer4.Events
         /// The scopes.
         /// </value>
         public string Scopes { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the error.
         /// </summary>

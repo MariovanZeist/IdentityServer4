@@ -2,13 +2,13 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using IdentityServer4.Configuration;
 using IdentityServer4.Extensions;
 using IdentityServer4.Models;
 using IdentityServer4.Services;
-using System.Threading.Tasks;
-using IdentityServer4.Configuration;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Extensions.Logging;
 
 namespace IdentityServer4.Stores
@@ -24,13 +24,13 @@ namespace IdentityServer4.Stores
         private const string AllKey = "__all__";
 
         private readonly IdentityServerOptions _options;
-        
+
         private readonly ICache<IEnumerable<IdentityResource>> _identityCache;
         private readonly ICache<IEnumerable<ApiResource>> _apiByScopeCache;
         private readonly ICache<IEnumerable<ApiScope>> _apiScopeCache;
         private readonly ICache<IEnumerable<ApiResource>> _apiResourceCache;
         private readonly ICache<Resources> _allCache;
-        
+
         private readonly IResourceStore _inner;
         private readonly ILogger _logger;
 
@@ -45,8 +45,8 @@ namespace IdentityServer4.Stores
         /// <param name="scopeCache"></param>
         /// <param name="allCache">All cache.</param>
         /// <param name="logger">The logger.</param>
-        public CachingResourceStore(IdentityServerOptions options, T inner, 
-            ICache<IEnumerable<IdentityResource>> identityCache, 
+        public CachingResourceStore(IdentityServerOptions options, T inner,
+            ICache<IEnumerable<IdentityResource>> identityCache,
             ICache<IEnumerable<ApiResource>> apiByScopeCache,
             ICache<IEnumerable<ApiResource>> apisCache,
             ICache<IEnumerable<ApiScope>> scopeCache,

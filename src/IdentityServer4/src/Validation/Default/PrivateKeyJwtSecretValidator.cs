@@ -26,7 +26,7 @@ namespace IdentityServer4.Validation
         private readonly ILogger _logger;
 
         private const string Purpose = nameof(PrivateKeyJwtSecretValidator);
-        
+
         /// <summary>
         /// Instantiates an instance of private_key_jwt secret validator
         /// </summary>
@@ -88,7 +88,7 @@ namespace IdentityServer4.Validation
                 string.Concat(_contextAccessor.HttpContext.GetIdentityServerIssuerUri().EnsureTrailingSlash(),
                     Constants.ProtocolRoutePaths.Token)
             };
-            
+
             var tokenValidationParameters = new TokenValidationParameters
             {
                 IssuerSigningKeys = trustedKeys,
@@ -102,7 +102,7 @@ namespace IdentityServer4.Validation
 
                 RequireSignedTokens = true,
                 RequireExpirationTime = true,
-                
+
                 ClockSkew = TimeSpan.FromMinutes(5)
             };
             try
@@ -110,20 +110,20 @@ namespace IdentityServer4.Validation
                 var handler = new JwtSecurityTokenHandler();
                 handler.ValidateToken(jwtTokenString, tokenValidationParameters, out var token);
 
-                var jwtToken = (JwtSecurityToken)token;
+                var jwtToken = (JwtSecurityToken) token;
                 if (jwtToken.Subject != jwtToken.Issuer)
                 {
                     _logger.LogError("Both 'sub' and 'iss' in the client assertion token must have a value of client_id.");
                     return fail;
                 }
-                
+
                 var exp = jwtToken.Payload.Exp;
                 if (!exp.HasValue)
                 {
                     _logger.LogError("exp is missing.");
                     return fail;
                 }
-                
+
                 var jti = jwtToken.Payload.Jti;
                 if (jti.IsMissing())
                 {

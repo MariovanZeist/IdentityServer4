@@ -2,12 +2,12 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using Microsoft.IdentityModel.Tokens;
 
 namespace IdentityServer4.Models
 {
@@ -38,7 +38,7 @@ namespace IdentityServer4.Models
             var keys = new List<SecurityKey>();
 
             var certificates = GetCertificates(secretList)
-                                .Select(c => (SecurityKey)new X509SecurityKey(c))
+                                .Select(c => (SecurityKey) new X509SecurityKey(c))
                                 .ToList();
             keys.AddRange(certificates);
 

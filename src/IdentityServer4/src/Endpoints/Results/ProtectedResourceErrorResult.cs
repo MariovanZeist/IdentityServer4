@@ -3,12 +3,12 @@
 
 
 using System.Threading.Tasks;
+using IdentityModel;
 using IdentityServer4.Extensions;
-using Microsoft.Extensions.Primitives;
 using IdentityServer4.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Primitives;
 using Microsoft.Net.Http.Headers;
-using IdentityModel;
 
 namespace IdentityServer4.Endpoints.Results
 {

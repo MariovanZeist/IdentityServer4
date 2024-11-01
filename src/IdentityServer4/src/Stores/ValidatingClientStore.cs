@@ -2,12 +2,12 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System.Threading.Tasks;
 using IdentityServer4.Events;
 using IdentityServer4.Models;
 using IdentityServer4.Services;
 using IdentityServer4.Validation;
 using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
 
 namespace IdentityServer4.Stores
 {
@@ -66,7 +66,7 @@ namespace IdentityServer4.Stores
 
                 _logger.LogError("Invalid client configuration for client {clientId}: {errorMessage}", client.ClientId, context.ErrorMessage);
                 await _events.RaiseAsync(new InvalidClientConfigurationEvent(client, context.ErrorMessage));
-                    
+
                 return null;
             }
 

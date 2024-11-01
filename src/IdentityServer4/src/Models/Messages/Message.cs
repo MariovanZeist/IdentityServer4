@@ -27,7 +27,7 @@ namespace IdentityServer4.Models
         public Message()
         {
         }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Message{TModel}"/> class.
         /// </summary>

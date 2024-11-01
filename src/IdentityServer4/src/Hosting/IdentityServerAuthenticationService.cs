@@ -2,18 +2,18 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Http;
+using System;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using IdentityServer4.Services;
-using Microsoft.Extensions.Logging;
+using IdentityModel;
+using IdentityServer4.Configuration;
 using IdentityServer4.Configuration.DependencyInjection;
 using IdentityServer4.Extensions;
-using System;
-using IdentityModel;
-using System.Linq;
-using IdentityServer4.Configuration;
+using IdentityServer4.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityServer4.Hosting
 {
@@ -44,7 +44,7 @@ namespace IdentityServer4.Hosting
             ILogger<IdentityServerAuthenticationService> logger)
         {
             _inner = decorator.Instance;
-            
+
             _schemes = schemes;
             _clock = clock;
             _session = session;

@@ -30,7 +30,7 @@ namespace IdentityServer4.Stores
             {
                 _repository.Add(new InMemoryDeviceAuthorization(deviceCode, userCode, data));
             }
-            
+
             return Task.CompletedTask;
         }
 

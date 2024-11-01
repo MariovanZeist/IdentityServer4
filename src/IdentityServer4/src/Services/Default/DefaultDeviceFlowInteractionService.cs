@@ -58,7 +58,7 @@ namespace IdentityServer4.Services
         {
             if (userCode == null) throw new ArgumentNullException(nameof(userCode));
             if (consent == null) throw new ArgumentNullException(nameof(consent));
-            
+
             var deviceAuth = await _devices.FindByUserCodeAsync(userCode);
             if (deviceAuth == null) return LogAndReturnError("Invalid user code", "Device authorization failure - user code is invalid");
 
@@ -67,7 +67,7 @@ namespace IdentityServer4.Services
 
             var subject = await _session.GetUserAsync();
             if (subject == null) return LogAndReturnError("No user present in device flow request", "Device authorization failure - no user found");
-            
+
             var sid = await _session.GetSessionIdAsync();
 
             deviceAuth.IsAuthorized = true;

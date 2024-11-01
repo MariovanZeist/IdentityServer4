@@ -49,9 +49,9 @@ namespace IdentityServer4.Services
         public async Task<bool> ShouldSlowDown(string deviceCode, DeviceCode details)
         {
             if (deviceCode == null) throw new ArgumentNullException(nameof(deviceCode));
-            
+
             var key = KeyPrefix + deviceCode;
-            var options = new DistributedCacheEntryOptions {AbsoluteExpiration = _clock.UtcNow.AddSeconds(details.Lifetime)};
+            var options = new DistributedCacheEntryOptions { AbsoluteExpiration = _clock.UtcNow.AddSeconds(details.Lifetime) };
 
             var lastSeenAsString = await _cache.GetStringAsync(key);
 

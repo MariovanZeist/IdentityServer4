@@ -2,17 +2,17 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityModel;
-using IdentityServer4.Configuration;
-using IdentityServer4.Models;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text.Json;
+using IdentityModel;
+using IdentityServer4.Configuration;
+using IdentityServer4.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityServer4.Extensions
 {

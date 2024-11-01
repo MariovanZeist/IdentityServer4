@@ -1,10 +1,10 @@
-﻿using IdentityModel;
-using Microsoft.IdentityModel.Tokens;
-using System;
+﻿using System;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using IdentityModel;
+using Microsoft.IdentityModel.Tokens;
 
 namespace IdentityServer4.Configuration
 {

@@ -2,8 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using Microsoft.IdentityModel.Tokens;
 using System.Threading.Tasks;
+using Microsoft.IdentityModel.Tokens;
 
 namespace IdentityServer4.Stores
 {

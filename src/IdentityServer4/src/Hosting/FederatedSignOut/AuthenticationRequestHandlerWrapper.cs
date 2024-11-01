@@ -2,12 +2,12 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System;
+using System.Threading.Tasks;
 using IdentityServer4.Extensions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Threading.Tasks;
 
 namespace IdentityServer4.Hosting.FederatedSignOut
 {
@@ -24,7 +24,7 @@ namespace IdentityServer4.Hosting.FederatedSignOut
             _inner = inner;
             _context = httpContextAccessor.HttpContext;
 
-            var factory = (ILoggerFactory)_context.RequestServices.GetService(typeof(ILoggerFactory));
+            var factory = (ILoggerFactory) _context.RequestServices.GetService(typeof(ILoggerFactory));
             _logger = factory?.CreateLogger(GetType());
         }
 

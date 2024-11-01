@@ -3,9 +3,9 @@
 
 
 using System;
-using System.Threading.Tasks;
-using System.Linq;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Threading.Tasks;
 using IdentityModel;
 using IdentityServer4.Configuration;
 using IdentityServer4.Extensions;

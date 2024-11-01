@@ -2,16 +2,16 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4;
-using IdentityServer4.Configuration;
-using IdentityServer4.Models;
-using IdentityServer4.Stores;
-using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
+using IdentityServer4;
+using IdentityServer4.Configuration;
+using IdentityServer4.Models;
+using IdentityServer4.Stores;
+using Microsoft.IdentityModel.Tokens;
 using JsonWebKey = Microsoft.IdentityModel.Tokens.JsonWebKey;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -30,7 +30,7 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IIdentityServerBuilder AddSigningCredential(this IIdentityServerBuilder builder, SigningCredentials credential)
         {
             if (!(credential.Key is AsymmetricSecurityKey
-                || credential.Key is IdentityModel.Tokens.JsonWebKey && ((IdentityModel.Tokens.JsonWebKey)credential.Key).HasPrivateKey))
+                || credential.Key is IdentityModel.Tokens.JsonWebKey && ((IdentityModel.Tokens.JsonWebKey) credential.Key).HasPrivateKey))
             {
                 throw new InvalidOperationException("Signing key is not asymmetric");
             }
@@ -265,7 +265,7 @@ namespace Microsoft.Extensions.DependencyInjection
             // add signing algorithm name to key ID to allow using the same key for two different algorithms (e.g. RS256 and PS56);
             var key = new X509SecurityKey(certificate);
             key.KeyId += signingAlgorithm;
-            
+
             var keyInfo = new SecurityKeyInfo
             {
                 Key = key,

@@ -23,7 +23,7 @@ namespace IdentityServer4.Events
         /// Information event
         /// </summary>
         Information = 3,
-        
+
         /// <summary>
         /// Error event
         /// </summary>

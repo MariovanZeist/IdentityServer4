@@ -2,13 +2,13 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityModel;
-using IdentityServer4.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using IdentityModel;
+using IdentityServer4.Extensions;
 
 #pragma warning disable 1591
 
@@ -100,7 +100,7 @@ namespace IdentityServer4.Validation
         {
             if (request == null) return null;
             if (!request.IsOpenIdRequest) return null;
-            
+
             if (request.SessionId == null) return null;
 
             if (request.ClientId.IsMissing()) return null;

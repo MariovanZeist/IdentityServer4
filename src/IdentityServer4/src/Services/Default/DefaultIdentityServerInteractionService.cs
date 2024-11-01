@@ -2,16 +2,16 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using IdentityServer4.Extensions;
 using IdentityServer4.Models;
 using IdentityServer4.Stores;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using Microsoft.Extensions.Logging;
-using System.Linq;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityServer4.Services
 {
@@ -98,7 +98,7 @@ namespace IdentityServer4.Services
         public async Task<ErrorMessage> GetErrorContextAsync(string errorId)
         {
             if (errorId != null)
-            { 
+            {
                 var result = await _errorMessageStore.ReadAsync(errorId);
                 var data = result?.Data;
                 if (data != null)
@@ -136,7 +136,7 @@ namespace IdentityServer4.Services
 
         public Task DenyAuthorizationAsync(AuthorizationRequest request, AuthorizationError error, string errorDescription = null)
         {
-            var response = new ConsentResponse 
+            var response = new ConsentResponse
             {
                 Error = error,
                 ErrorDescription = errorDescription

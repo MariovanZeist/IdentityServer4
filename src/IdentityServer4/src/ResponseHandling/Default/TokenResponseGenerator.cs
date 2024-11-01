@@ -2,17 +2,17 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using IdentityModel;
 using IdentityServer4.Extensions;
 using IdentityServer4.Models;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
 using IdentityServer4.Validation;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityServer4.ResponseHandling
 {
@@ -293,7 +293,7 @@ namespace IdentityServer4.ResponseHandling
 
                 var parsedScopesResult = ScopeParser.ParseScopeValues(request.ValidatedRequest.DeviceCode.AuthorizedScopes);
                 var validatedResources = await Resources.CreateResourceValidationResult(parsedScopesResult);
-                
+
                 var tokenRequest = new TokenCreationRequest
                 {
                     Subject = request.ValidatedRequest.DeviceCode.Subject,
@@ -443,7 +443,7 @@ namespace IdentityServer4.ResponseHandling
             // todo: can we just check for "openid" scope?
             //var identityResources = await Resources.FindEnabledIdentityResourcesByScopeAsync(request.RefreshToken.Scopes);
             //if (identityResources.Any())
-            
+
             if (request.RefreshToken.Scopes.Contains(OidcConstants.StandardScopes.OpenId))
             {
                 var oldAccessToken = request.RefreshToken.AccessToken;

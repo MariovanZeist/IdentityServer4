@@ -2,11 +2,11 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System.Net;
+using System.Threading.Tasks;
 using IdentityServer4.Extensions;
 using IdentityServer4.Hosting;
 using Microsoft.AspNetCore.Http;
-using System.Net;
-using System.Threading.Tasks;
 
 namespace IdentityServer4.Endpoints.Results
 {
@@ -40,7 +40,7 @@ namespace IdentityServer4.Endpoints.Results
         /// <returns></returns>
         public Task ExecuteAsync(HttpContext context)
         {
-            context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            context.Response.StatusCode = (int) HttpStatusCode.BadRequest;
             return context.Response.WriteJsonAsync(new { error = Error });
         }
     }

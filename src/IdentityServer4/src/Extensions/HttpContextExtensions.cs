@@ -2,16 +2,16 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using IdentityServer4.Configuration;
+using IdentityServer4.Models;
 using IdentityServer4.Services;
+using IdentityServer4.Stores;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Threading.Tasks;
-using IdentityServer4.Models;
-using IdentityServer4.Stores;
-using System.Linq;
-using Microsoft.AspNetCore.Authentication;
 
 #pragma warning disable 1591
 
@@ -49,7 +49,7 @@ namespace IdentityServer4.Extensions
         {
             var options = context.RequestServices.GetRequiredService<IdentityServerOptions>();
             var request = context.Request;
-            
+
             if (options.MutualTls.Enabled && options.MutualTls.DomainName.IsPresent())
             {
                 if (!options.MutualTls.DomainName.Contains("."))
@@ -61,7 +61,7 @@ namespace IdentityServer4.Extensions
                     }
                 }
             }
-            
+
             return request.Scheme + "://" + request.Host.Value;
         }
 

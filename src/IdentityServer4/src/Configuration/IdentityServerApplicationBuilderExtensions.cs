@@ -2,6 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System;
+using System.Reflection;
+using System.Threading.Tasks;
 using IdentityServer4.Configuration;
 using IdentityServer4.Extensions;
 using IdentityServer4.Hosting;
@@ -9,10 +12,6 @@ using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Diagnostics;
-using System.Reflection;
-using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Builder
 {
@@ -121,7 +120,7 @@ namespace Microsoft.AspNetCore.Builder
         private static void ValidateOptions(IdentityServerOptions options, ILogger logger)
         {
             if (options.IssuerUri.IsPresent()) logger.LogDebug("Custom IssuerUri set to {0}", options.IssuerUri);
-            
+
             // todo: perhaps different logging messages?
             //if (options.UserInteraction.LoginUrl.IsMissing()) throw new InvalidOperationException("LoginUrl is not configured");
             //if (options.UserInteraction.LoginReturnUrlParameter.IsMissing()) throw new InvalidOperationException("LoginReturnUrlParameter is not configured");

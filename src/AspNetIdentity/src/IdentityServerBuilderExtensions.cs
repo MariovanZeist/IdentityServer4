@@ -7,7 +7,6 @@ using System.Linq;
 using IdentityModel;
 using IdentityServer4;
 using IdentityServer4.AspNetIdentity;
-using IdentityServer4.Configuration;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 
@@ -116,7 +115,7 @@ namespace Microsoft.Extensions.DependencyInjection
             {
                 services.Add(new ServiceDescriptor(typeof(Decorator<TService>), provider =>
                 {
-                    return new DisposableDecorator<TService>((TService)registration.ImplementationFactory(provider));
+                    return new DisposableDecorator<TService>((TService) registration.ImplementationFactory(provider));
                 }, registration.Lifetime));
             }
             else

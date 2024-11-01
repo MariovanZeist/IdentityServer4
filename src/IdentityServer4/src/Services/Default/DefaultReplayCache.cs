@@ -10,9 +10,9 @@ namespace IdentityServer4.Services
     public class DefaultReplayCache : IReplayCache
     {
         private const string Prefix = nameof(DefaultReplayCache) + ":";
-        
+
         private readonly IDistributedCache _cache;
-        
+
         /// <summary>
         /// ctor
         /// </summary>
@@ -21,7 +21,7 @@ namespace IdentityServer4.Services
         {
             _cache = cache;
         }
-        
+
         /// <inheritdoc />
         public async Task AddAsync(string purpose, string handle, DateTimeOffset expiration)
         {
@@ -29,7 +29,7 @@ namespace IdentityServer4.Services
             {
                 AbsoluteExpiration = expiration
             };
-            
+
             await _cache.SetAsync(Prefix + purpose + handle, new byte[] { }, options);
         }
 

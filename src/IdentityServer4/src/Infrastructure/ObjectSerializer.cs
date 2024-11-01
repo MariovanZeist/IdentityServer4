@@ -12,9 +12,9 @@ namespace IdentityServer4
         {
             IgnoreNullValues = true,
 
-            
+
         };
-        
+
         public static string ToString(object o)
         {
             return JsonSerializer.Serialize(o, Options);

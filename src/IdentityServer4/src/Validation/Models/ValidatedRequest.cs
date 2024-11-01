@@ -2,14 +2,14 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System;
 using System.Collections.Generic;
-using IdentityServer4.Configuration;
-using IdentityServer4.Models;
 using System.Collections.Specialized;
+using System.Linq;
 using System.Security.Claims;
 using IdentityModel;
-using System.Linq;
-using System;
+using IdentityServer4.Configuration;
+using IdentityServer4.Models;
 
 namespace IdentityServer4.Validation
 {
@@ -75,7 +75,7 @@ namespace IdentityServer4.Validation
         /// The session identifier.
         /// </value>
         public string SessionId { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the identity server options.
         /// </summary>

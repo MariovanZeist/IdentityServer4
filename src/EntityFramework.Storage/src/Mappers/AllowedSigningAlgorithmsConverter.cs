@@ -9,7 +9,7 @@ using AutoMapper;
 
 namespace IdentityServer4.EntityFramework.Mappers
 {
-    class AllowedSigningAlgorithmsConverter : 
+    class AllowedSigningAlgorithmsConverter :
         IValueConverter<ICollection<string>, string>,
         IValueConverter<string, ICollection<string>>
     {

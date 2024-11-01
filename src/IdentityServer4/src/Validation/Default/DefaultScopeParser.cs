@@ -2,9 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityServer4.Validation
 {
@@ -35,7 +35,7 @@ namespace IdentityServer4.Validation
             {
                 var ctx = new ParseScopeContext(scopeValue);
                 ParseScopeValue(ctx);
-                
+
                 if (ctx.Succeeded)
                 {
                     var parsedScope = ctx.ParsedName != null ?
@@ -91,7 +91,7 @@ namespace IdentityServer4.Validation
             /// The error encountered parsing the scope.
             /// </summary>
             public string Error { get; private set; }
-            
+
             /// <summary>
             /// Indicates if the scope should be excluded from the parsed results.
             /// </summary>

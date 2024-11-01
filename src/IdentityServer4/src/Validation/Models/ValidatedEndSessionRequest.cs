@@ -26,7 +26,7 @@ namespace IdentityServer4.Validation
         /// The post-logout URI.
         /// </value>
         public string PostLogOutUri { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the state.
         /// </summary>

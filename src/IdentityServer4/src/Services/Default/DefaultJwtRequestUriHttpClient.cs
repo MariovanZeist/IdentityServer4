@@ -3,12 +3,12 @@
 
 
 using System;
-using IdentityServer4.Models;
-using Microsoft.Extensions.Logging;
 using System.Net.Http;
 using System.Threading.Tasks;
 using IdentityModel;
 using IdentityServer4.Configuration;
+using IdentityServer4.Models;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityServer4.Services
 {
@@ -55,11 +55,11 @@ namespace IdentityServer4.Services
                 }
 
                 _logger.LogDebug("Success http response from jwt url {url}", url);
-                
+
                 var json = await response.Content.ReadAsStringAsync();
                 return json;
             }
-                
+
             _logger.LogError("Invalid http status code {status} from jwt url {url}", response.StatusCode, url);
             return null;
         }

@@ -3,14 +3,14 @@
 
 
 using System;
-using System.Threading.Tasks;
-using IdentityServer4.Services;
 using System.Linq;
+using System.Threading.Tasks;
 using IdentityServer4.EntityFramework.Interfaces;
-using Microsoft.Extensions.Logging;
+using IdentityServer4.Services;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityServer4.EntityFramework.Services
 {
@@ -50,7 +50,7 @@ namespace IdentityServer4.EntityFramework.Services
             var query = from o in dbContext.ClientCorsOrigins
                         where o.Origin == origin
                         select o;
-            
+
             var isAllowed = await query.AnyAsync();
 
             _logger.LogDebug("Origin {origin} is allowed: {originAllowed}", origin, isAllowed);

@@ -2,16 +2,15 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Extensions;
-using IdentityServer4.Models;
-using IdentityServer4.Stores;
-using Microsoft.Extensions.Logging;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using IdentityModel;
-using IdentityServer4.Logging.Models;
+using IdentityServer4.Extensions;
+using IdentityServer4.Models;
+using IdentityServer4.Stores;
 using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityServer4.Services
 {
@@ -91,7 +90,7 @@ namespace IdentityServer4.Services
                 Logger.LogWarning("Refresh token has expired.");
                 return invalidGrant;
             }
-            
+
             /////////////////////////////////////////////
             // check if client belongs to requested refresh token
             /////////////////////////////////////////////
@@ -109,7 +108,7 @@ namespace IdentityServer4.Services
                 Logger.LogError("{clientId} does not have access to offline_access scope anymore", client.ClientId);
                 return invalidGrant;
             }
-            
+
             /////////////////////////////////////////////
             // check if refresh token has been consumed
             /////////////////////////////////////////////
@@ -121,7 +120,7 @@ namespace IdentityServer4.Services
                     return invalidGrant;
                 }
             }
-            
+
             /////////////////////////////////////////////
             // make sure user is enabled
             /////////////////////////////////////////////
@@ -137,11 +136,11 @@ namespace IdentityServer4.Services
                 Logger.LogError("{subjectId} has been disabled", refreshToken.Subject.GetSubjectId());
                 return invalidGrant;
             }
-            
+
             return new TokenValidationResult
             {
-                IsError = false, 
-                RefreshToken = refreshToken, 
+                IsError = false,
+                RefreshToken = refreshToken,
                 Client = client
             };
         }

@@ -10,7 +10,7 @@ namespace IdentityServer4.EntityFramework.Mappers
     /// Defines entity/model mapping for persisted grants.
     /// </summary>
     /// <seealso cref="AutoMapper.Profile" />
-    public class PersistedGrantMapperProfile:Profile
+    public class PersistedGrantMapperProfile : Profile
     {
         /// <summary>
         /// <see cref="PersistedGrantMapperProfile">

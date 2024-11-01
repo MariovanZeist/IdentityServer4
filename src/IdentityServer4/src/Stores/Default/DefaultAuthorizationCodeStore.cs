@@ -3,11 +3,11 @@
 
 
 using System.Threading.Tasks;
+using IdentityServer4.Extensions;
 using IdentityServer4.Models;
+using IdentityServer4.Services;
 using IdentityServer4.Stores.Serialization;
 using Microsoft.Extensions.Logging;
-using IdentityServer4.Extensions;
-using IdentityServer4.Services;
 
 namespace IdentityServer4.Stores
 {

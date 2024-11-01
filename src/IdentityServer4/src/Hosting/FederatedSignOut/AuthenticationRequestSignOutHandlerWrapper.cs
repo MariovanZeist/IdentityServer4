@@ -13,7 +13,7 @@ namespace IdentityServer4.Hosting.FederatedSignOut
         private readonly IAuthenticationSignOutHandler _inner;
 
         public AuthenticationRequestSignOutHandlerWrapper(IAuthenticationSignOutHandler inner, IHttpContextAccessor httpContextAccessor)
-            : base((IAuthenticationRequestHandler)inner, httpContextAccessor)
+            : base((IAuthenticationRequestHandler) inner, httpContextAccessor)
         {
             _inner = inner;
         }

@@ -3,8 +3,8 @@
 
 
 using System.Threading.Tasks;
-using IdentityServer4.Validation;
 using IdentityServer4.Stores;
+using IdentityServer4.Validation;
 using Microsoft.Extensions.Logging;
 
 namespace IdentityServer4.ResponseHandling

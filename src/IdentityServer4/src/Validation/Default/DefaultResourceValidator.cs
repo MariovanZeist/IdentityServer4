@@ -2,12 +2,12 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Models;
-using IdentityServer4.Stores;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using IdentityServer4.Models;
+using IdentityServer4.Stores;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityServer4.Validation
 {
@@ -41,7 +41,7 @@ namespace IdentityServer4.Validation
             var parsedScopesResult = _scopeParser.ParseScopeValues(request.Scopes);
 
             var result = new ResourceValidationResult();
-            
+
             if (!parsedScopesResult.Succeeded)
             {
                 foreach (var invalidScope in parsedScopesResult.Errors)
@@ -81,9 +81,9 @@ namespace IdentityServer4.Validation
         /// <param name="result"></param>
         /// <returns></returns>
         protected virtual async Task ValidateScopeAsync(
-            Client client, 
-            Resources resourcesFromStore, 
-            ParsedScopeValue requestedScope, 
+            Client client,
+            Resources resourcesFromStore,
+            ParsedScopeValue requestedScope,
             ResourceValidationResult result)
         {
             if (requestedScope.ParsedName == IdentityServerConstants.StandardScopes.OfflineAccess)

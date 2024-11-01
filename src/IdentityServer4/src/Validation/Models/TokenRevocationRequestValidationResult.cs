@@ -18,7 +18,7 @@ namespace IdentityServer4.Validation
         /// The token type hint.
         /// </value>
         public string TokenTypeHint { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the token.
         /// </summary>

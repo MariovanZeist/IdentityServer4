@@ -2,17 +2,17 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Extensions;
-using IdentityServer4.Models;
-using IdentityServer4.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using IdentityServer4.Extensions;
+using IdentityServer4.Models;
+using IdentityServer4.Stores;
+using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
-using IdentityServer4.Validation;
 
 namespace IdentityServer4.Services
 {
@@ -86,7 +86,7 @@ namespace IdentityServer4.Services
                 Logger.LogDebug("Client is configured to not allow remembering consent, consent is required");
                 return true;
             }
-            
+
             if (parsedScopes.Any(x => x.ParsedName != x.RawValue))
             {
                 Logger.LogDebug("Scopes contains parameterized values, consent is required");

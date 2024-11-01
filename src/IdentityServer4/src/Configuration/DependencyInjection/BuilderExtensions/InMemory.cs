@@ -2,14 +2,14 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System.Collections.Generic;
+using System.Linq;
 using IdentityServer4.Models;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -72,7 +72,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
             return builder;
         }
-        
+
         /// <summary>
         /// Adds the in memory API resources.
         /// </summary>
@@ -128,8 +128,8 @@ namespace Microsoft.Extensions.DependencyInjection
             builder.AddClientStore<InMemoryClientStore>();
 
             var existingCors = builder.Services.Where(x => x.ServiceType == typeof(ICorsPolicyService)).LastOrDefault();
-            if (existingCors != null && 
-                existingCors.ImplementationType == typeof(DefaultCorsPolicyService) && 
+            if (existingCors != null &&
+                existingCors.ImplementationType == typeof(DefaultCorsPolicyService) &&
                 existingCors.Lifetime == ServiceLifetime.Transient)
             {
                 // if our default is registered, then overwrite with the InMemoryCorsPolicyService

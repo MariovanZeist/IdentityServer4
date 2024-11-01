@@ -2,12 +2,12 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System;
+using System.Collections.Generic;
 using IdentityServer4.Configuration;
 using IdentityServer4.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 
 namespace IdentityServer4.Hosting
 {
@@ -28,7 +28,7 @@ namespace IdentityServer4.Hosting
         {
             if (context == null) throw new ArgumentNullException(nameof(context));
 
-            foreach(var endpoint in _endpoints)
+            foreach (var endpoint in _endpoints)
             {
                 var path = endpoint.Path;
                 if (context.Request.Path.Equals(path, StringComparison.OrdinalIgnoreCase))

@@ -2,11 +2,11 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System;
+using IdentityServer4.Models;
 using IdentityServer4.Validation;
 
 namespace IdentityServer4.Stores
@@ -59,7 +59,7 @@ namespace IdentityServer4.Stores
                 throw new Exception(
                     $"Duplicate api resources found. This is an invalid configuration. Use different names for API resources. Names found: {names}");
             }
-            
+
             var scopesNames = apiScopes.Select(x => x.Name);
             dups = GetDuplicates(scopesNames);
             if (dups.Any())

@@ -2,10 +2,10 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Extensions;
-using IdentityServer4.Services;
 using System.Threading.Tasks;
 using IdentityServer4.Configuration;
+using IdentityServer4.Extensions;
+using IdentityServer4.Services;
 using Microsoft.Extensions.Logging;
 
 namespace IdentityServer4.Stores

@@ -2,10 +2,10 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using IdentityServer4.Extensions;
 
 namespace IdentityServer4.Models
 {
@@ -16,7 +16,7 @@ namespace IdentityServer4.Models
     public class IdentityResource : Resource
     {
         private string DebuggerDisplay => Name ?? $"{{{typeof(IdentityResource)}}}";
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentityResource"/> class.
         /// </summary>
@@ -50,7 +50,7 @@ namespace IdentityServer4.Models
             Name = name;
             DisplayName = displayName;
 
-            foreach(var type in userClaims)
+            foreach (var type in userClaims)
             {
                 UserClaims.Add(type);
             }

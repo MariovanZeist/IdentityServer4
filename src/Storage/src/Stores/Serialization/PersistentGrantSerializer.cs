@@ -20,7 +20,7 @@ namespace IdentityServer4.Stores.Serialization
             _settings = new JsonSerializerOptions
             {
                 IgnoreReadOnlyProperties = true
-//                ContractResolver = new CustomContractResolver()
+                //                ContractResolver = new CustomContractResolver()
             };
             _settings.Converters.Add(new ClaimConverter());
             _settings.Converters.Add(new ClaimsPrincipalConverter());

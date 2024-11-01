@@ -4,9 +4,9 @@
 
 #pragma warning disable 1591
 
-using IdentityServer4.Models;
 using System;
 using System.Collections.Generic;
+using IdentityServer4.Models;
 
 namespace IdentityServer4.EntityFramework.Entities
 {
@@ -45,10 +45,10 @@ namespace IdentityServer4.EntityFramework.Entities
         public int? ConsentLifetime { get; set; } = null;
         public int AbsoluteRefreshTokenLifetime { get; set; } = 2592000;
         public int SlidingRefreshTokenLifetime { get; set; } = 1296000;
-        public int RefreshTokenUsage { get; set; } = (int)TokenUsage.OneTimeOnly;
+        public int RefreshTokenUsage { get; set; } = (int) TokenUsage.OneTimeOnly;
         public bool UpdateAccessTokenClaimsOnRefresh { get; set; }
-        public int RefreshTokenExpiration { get; set; } = (int)TokenExpiration.Absolute;
-        public int AccessTokenType { get; set; } = (int)0; // AccessTokenType.Jwt;
+        public int RefreshTokenExpiration { get; set; } = (int) TokenExpiration.Absolute;
+        public int AccessTokenType { get; set; } = (int) 0; // AccessTokenType.Jwt;
         public bool EnableLocalLogin { get; set; } = true;
         public List<ClientIdPRestriction> IdentityProviderRestrictions { get; set; }
         public bool IncludeJwtId { get; set; }

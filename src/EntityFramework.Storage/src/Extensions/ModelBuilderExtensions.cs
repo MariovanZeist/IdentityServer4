@@ -49,7 +49,7 @@ namespace IdentityServer4.EntityFramework.Extensions
 
                 client.HasIndex(x => x.ClientId).IsUnique();
 
-                client.HasMany(x => x.AllowedGrantTypes).WithOne(x => x.Client).HasForeignKey(x=>x.ClientId).IsRequired().OnDelete(DeleteBehavior.Cascade);
+                client.HasMany(x => x.AllowedGrantTypes).WithOne(x => x.Client).HasForeignKey(x => x.ClientId).IsRequired().OnDelete(DeleteBehavior.Cascade);
                 client.HasMany(x => x.RedirectUris).WithOne(x => x.Client).HasForeignKey(x => x.ClientId).IsRequired().OnDelete(DeleteBehavior.Cascade);
                 client.HasMany(x => x.PostLogoutRedirectUris).WithOne(x => x.Client).HasForeignKey(x => x.ClientId).IsRequired().OnDelete(DeleteBehavior.Cascade);
                 client.HasMany(x => x.AllowedScopes).WithOne(x => x.Client).HasForeignKey(x => x.ClientId).IsRequired().OnDelete(DeleteBehavior.Cascade);
@@ -166,7 +166,7 @@ namespace IdentityServer4.EntityFramework.Extensions
                 // apparently anything over 4K converts to nvarchar(max) on SqlServer
                 codes.Property(x => x.Data).HasMaxLength(50000).IsRequired();
 
-                codes.HasKey(x => new {x.UserCode});
+                codes.HasKey(x => new { x.UserCode });
 
                 codes.HasIndex(x => x.DeviceCode).IsUnique();
                 codes.HasIndex(x => x.Expiration);
@@ -245,9 +245,9 @@ namespace IdentityServer4.EntityFramework.Extensions
                 apiClaim.Property(x => x.Type).HasMaxLength(200).IsRequired();
             });
 
-            modelBuilder.Entity<ApiResourceScope>((System.Action<EntityTypeBuilder<ApiResourceScope>>)(apiScope =>
+            modelBuilder.Entity<ApiResourceScope>((System.Action<EntityTypeBuilder<ApiResourceScope>>) (apiScope =>
             {
-                apiScope.ToTable((TableConfiguration)storeOptions.ApiResourceScope).HasKey(x => x.Id);
+                apiScope.ToTable((TableConfiguration) storeOptions.ApiResourceScope).HasKey(x => x.Id);
 
                 apiScope.Property(x => x.Scope).HasMaxLength(200).IsRequired();
             }));

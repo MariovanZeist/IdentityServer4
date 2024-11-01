@@ -2,8 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Models;
 using System.Threading.Tasks;
+using IdentityServer4.Models;
 
 namespace IdentityServer4.Stores
 {
@@ -32,5 +32,5 @@ namespace IdentityServer4.Stores
         /// <param name="code">The code.</param>
         /// <returns></returns>
         Task RemoveAuthorizationCodeAsync(string code);
-   }
+    }
 }

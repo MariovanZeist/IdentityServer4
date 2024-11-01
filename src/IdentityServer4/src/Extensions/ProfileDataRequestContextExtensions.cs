@@ -2,12 +2,12 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Extensions;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using IdentityServer4.Extensions;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityServer4.Models
 {

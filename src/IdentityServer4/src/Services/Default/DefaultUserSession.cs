@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using IdentityModel;
 using IdentityServer4.Configuration;
 using IdentityServer4.Extensions;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Authentication;
 
 namespace IdentityServer4.Services
 {
@@ -58,7 +58,7 @@ namespace IdentityServer4.Services
         /// The name of the check session cookie.
         /// </value>
         protected string CheckSessionCookieName => Options.Authentication.CheckSessionCookieName;
-        
+
         /// <summary>
         /// Gets the domain of the check session cookie.
         /// </summary>

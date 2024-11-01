@@ -2,9 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System.Collections.Specialized;
 using IdentityServer4.Extensions;
 using IdentityServer4.ResponseHandling;
-using System.Collections.Specialized;
 
 namespace IdentityServer4.Models
 {
@@ -54,7 +54,7 @@ namespace IdentityServer4.Models
             {
                 collection.Add("state", response.State);
             }
-            
+
             if (response.SessionState.IsPresent())
             {
                 collection.Add("session_state", response.SessionState);

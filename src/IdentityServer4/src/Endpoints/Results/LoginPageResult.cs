@@ -5,14 +5,14 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using IdentityServer4.Configuration;
+using IdentityServer4.Extensions;
 using IdentityServer4.Hosting;
+using IdentityServer4.Models;
+using IdentityServer4.Stores;
 using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Http;
-using IdentityServer4.Extensions;
-using IdentityServer4.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using IdentityServer4.Stores;
-using IdentityServer4.Models;
 
 namespace IdentityServer4.Endpoints.Results
 {
@@ -37,7 +37,7 @@ namespace IdentityServer4.Endpoints.Results
         internal LoginPageResult(
             ValidatedAuthorizeRequest request,
             IdentityServerOptions options,
-            IAuthorizationParametersMessageStore authorizationParametersMessageStore = null) 
+            IAuthorizationParametersMessageStore authorizationParametersMessageStore = null)
             : this(request)
         {
             _options = options;

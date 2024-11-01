@@ -3,9 +3,9 @@
 
 
 using System.Threading.Tasks;
+using IdentityServer4.Extensions;
 using IdentityServer4.Hosting;
 using Microsoft.AspNetCore.Http;
-using IdentityServer4.Extensions;
 
 namespace IdentityServer4.Endpoints.Results
 {
@@ -41,6 +41,6 @@ namespace IdentityServer4.Endpoints.Results
         {
             public string error { get; set; }
             public string error_description { get; set; }
-        }    
+        }
     }
 }

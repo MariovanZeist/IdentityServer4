@@ -46,7 +46,7 @@ namespace IdentityServer4.Endpoints
             {
                 _logger.LogError("Error validating signout callback: {error}", result.Error);
             }
-            
+
             return new EndSessionCallbackResult(result);
         }
     }

@@ -2,12 +2,12 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.EntityFramework.Options;
-using IdentityServer4.EntityFramework;
-using Microsoft.Extensions.Hosting;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using System;
+using IdentityServer4.EntityFramework;
+using IdentityServer4.EntityFramework.Options;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -22,7 +22,7 @@ namespace Microsoft.Extensions.DependencyInjection
         private readonly ILogger<TokenCleanupHost> _logger;
 
         private TimeSpan CleanupInterval => TimeSpan.FromSeconds(_options.TokenCleanupInterval);
-        
+
         private CancellationTokenSource _source;
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
                 Task.Factory.StartNew(() => StartInternalAsync(_source.Token));
             }
-            
+
             return Task.CompletedTask;
         }
 

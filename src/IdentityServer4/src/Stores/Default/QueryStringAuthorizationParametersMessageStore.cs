@@ -3,9 +3,9 @@
 
 
 using System.Collections.Generic;
-using IdentityServer4.Models;
 using System.Threading.Tasks;
 using IdentityServer4.Extensions;
+using IdentityServer4.Models;
 
 namespace IdentityServer4.Stores
 {

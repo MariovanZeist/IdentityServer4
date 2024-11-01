@@ -2,7 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using Microsoft.AspNetCore.WebUtilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -10,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.WebUtilities;
 
 namespace IdentityServer4.Extensions
 {
@@ -239,7 +239,7 @@ namespace IdentityServer4.Extensions
                 }
             }
 
-            return new NameValueCollection();           
+            return new NameValueCollection();
         }
 
         public static string GetOrigin(this string url)
@@ -264,7 +264,7 @@ namespace IdentityServer4.Extensions
 
             return null;
         }
-        
+
         public static string Obfuscate(this string value)
         {
             var last4Chars = "****";

@@ -4,9 +4,9 @@
 
 using System.Threading.Tasks;
 using IdentityServer4.Models;
+using IdentityServer4.Services;
 using IdentityServer4.Stores.Serialization;
 using Microsoft.Extensions.Logging;
-using IdentityServer4.Services;
 
 namespace IdentityServer4.Stores
 {
@@ -23,10 +23,10 @@ namespace IdentityServer4.Stores
         /// <param name="handleGenerationService">The handle generation service.</param>
         /// <param name="logger">The logger.</param>
         public DefaultRefreshTokenStore(
-            IPersistedGrantStore store, 
-            IPersistentGrantSerializer serializer, 
+            IPersistedGrantStore store,
+            IPersistentGrantSerializer serializer,
             IHandleGenerationService handleGenerationService,
-            ILogger<DefaultRefreshTokenStore> logger) 
+            ILogger<DefaultRefreshTokenStore> logger)
             : base(IdentityServerConstants.PersistedGrantTypes.RefreshToken, store, serializer, handleGenerationService, logger)
         {
         }

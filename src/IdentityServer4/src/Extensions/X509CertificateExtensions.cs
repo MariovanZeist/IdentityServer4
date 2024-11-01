@@ -19,7 +19,7 @@ namespace IdentityServer4.Extensions
         public static string CreateThumbprintCnf(this X509Certificate2 certificate)
         {
             var hash = certificate.GetCertHash(HashAlgorithmName.SHA256);
-                            
+
             var values = new Dictionary<string, string>
             {
                 { "x5t#S256", Base64Url.Encode(hash) }

@@ -2,9 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Models;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using IdentityServer4.Models;
 using IdentityServer4.Validation;
 
 namespace IdentityServer4.Services
@@ -21,7 +21,7 @@ namespace IdentityServer4.Services
         /// <param name="client">The client.</param>
         /// <returns></returns>
         Task<TokenValidationResult> ValidateRefreshTokenAsync(string token, Client client);
-        
+
         /// <summary>
         /// Creates the refresh token.
         /// </summary>

@@ -2,16 +2,16 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
 using IdentityServer4.Configuration;
 using IdentityServer4.Extensions;
 using IdentityServer4.Models;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
 
 namespace IdentityServer4
 {
@@ -23,9 +23,9 @@ namespace IdentityServer4
         private readonly IDataProtector _protector;
 
         public MessageCookie(
-            ILogger<MessageCookie<TModel>> logger, 
+            ILogger<MessageCookie<TModel>> logger,
             IdentityServerOptions options,
-            IHttpContextAccessor context, 
+            IHttpContextAccessor context,
             IDataProtectionProvider provider)
         {
             _logger = logger;
@@ -114,7 +114,7 @@ namespace IdentityServer4
                 {
                     return Unprotect(data);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     _logger.LogError(ex, "Error unprotecting message cookie");
                     ClearByCookieName(name);
@@ -145,7 +145,7 @@ namespace IdentityServer4
         }
 
         private long GetCookieRank(string name)
-        {   
+        {
             // empty and invalid cookies are considered to be the oldest:
             var rank = DateTime.MinValue.Ticks;
 
@@ -159,11 +159,11 @@ namespace IdentityServer4
                 }
             }
             catch (CryptographicException e)
-            {   
+            {
                 // cookie was protected with a different key/algorithm
                 _logger.LogDebug(e, "Unable to unprotect cookie {0}", name);
             }
-            
+
             return rank;
         }
 

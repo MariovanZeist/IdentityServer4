@@ -2,10 +2,10 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using IdentityServer4.Extensions;
 
 namespace IdentityServer4.Models
 {
@@ -16,7 +16,7 @@ namespace IdentityServer4.Models
     public class ApiResource : Resource
     {
         private string DebuggerDisplay => Name ?? $"{{{typeof(ApiResource)}}}";
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiResource"/> class.
         /// </summary>

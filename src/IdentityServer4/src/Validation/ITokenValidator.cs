@@ -3,7 +3,6 @@
 
 
 using System.Threading.Tasks;
-using IdentityServer4.Models;
 
 namespace IdentityServer4.Validation
 {
@@ -19,7 +18,7 @@ namespace IdentityServer4.Validation
         /// <param name="expectedScope">The expected scope.</param>
         /// <returns></returns>
         Task<TokenValidationResult> ValidateAccessTokenAsync(string token, string expectedScope = null);
-        
+
         /// <summary>
         /// Validates an identity token.
         /// </summary>

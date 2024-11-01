@@ -2,6 +2,11 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using IdentityModel;
 using IdentityServer4.Configuration;
 using IdentityServer4.Extensions;
@@ -10,11 +15,6 @@ using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace IdentityServer4.Services
 {
@@ -201,7 +201,7 @@ namespace IdentityServer4.Services
             {
                 claims.Add(new Claim(JwtClaimTypes.SessionId, request.ValidatedRequest.SessionId));
             }
-            
+
             // iat claim as required by JWT profile
             claims.Add(new Claim(JwtClaimTypes.IssuedAt, Clock.UtcNow.ToUnixTimeSeconds().ToString(),
                 ClaimValueTypes.Integer64));
@@ -246,7 +246,7 @@ namespace IdentityServer4.Services
                     }
                 }
             }
-            
+
             return token;
         }
 

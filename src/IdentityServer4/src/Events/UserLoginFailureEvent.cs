@@ -22,7 +22,7 @@ namespace IdentityServer4.Events
         public UserLoginFailureEvent(string username, string error, bool interactive = true, string clientId = null)
             : base(EventCategories.Authentication,
                   "User Login Failure",
-                  EventTypes.Failure, 
+                  EventTypes.Failure,
                   EventIds.UserLoginFailure,
                   error)
         {

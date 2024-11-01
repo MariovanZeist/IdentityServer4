@@ -61,7 +61,7 @@ namespace IdentityServer4.Validation
                 context.Result = new TokenRequestValidationResult(context.Request, OidcConstants.TokenErrors.InvalidGrant);
                 return;
             }
-            
+
             // validate client binding
             if (deviceCode.ClientId != context.Request.Client.ClientId)
             {

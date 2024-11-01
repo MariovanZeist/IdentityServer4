@@ -2,15 +2,15 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System;
+using System.Net.Http;
+using IdentityServer4;
+using IdentityServer4.Configuration;
 using IdentityServer4.ResponseHandling;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
 using IdentityServer4.Validation;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using System;
-using System.Net.Http;
-using IdentityServer4;
-using IdentityServer4.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -85,7 +85,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
             return builder;
         }
-        
+
         /// <summary>
         /// Adds a resource validator.
         /// </summary>
@@ -372,7 +372,8 @@ namespace Microsoft.Extensions.DependencyInjection
             else
             {
                 httpBuilder = builder.Services.AddHttpClient(name)
-                    .ConfigureHttpClient(client => {
+                    .ConfigureHttpClient(client =>
+                    {
                         client.Timeout = TimeSpan.FromSeconds(IdentityServerConstants.HttpClients.DefaultTimeoutSeconds);
                     });
             }
@@ -382,7 +383,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 var httpClientFactory = s.GetRequiredService<IHttpClientFactory>();
                 var httpClient = httpClientFactory.CreateClient(name);
                 var loggerFactory = s.GetRequiredService<ILoggerFactory>();
-                
+
                 return new DefaultBackChannelLogoutHttpClient(httpClient, loggerFactory);
             });
 
@@ -409,11 +410,12 @@ namespace Microsoft.Extensions.DependencyInjection
             else
             {
                 httpBuilder = builder.Services.AddHttpClient(name)
-                    .ConfigureHttpClient(client => {
+                    .ConfigureHttpClient(client =>
+                    {
                         client.Timeout = TimeSpan.FromSeconds(IdentityServerConstants.HttpClients.DefaultTimeoutSeconds);
                     });
             }
-            
+
             builder.Services.AddTransient<IJwtRequestUriHttpClient, DefaultJwtRequestUriHttpClient>(s =>
             {
                 var httpClientFactory = s.GetRequiredService<IHttpClientFactory>();

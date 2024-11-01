@@ -2,13 +2,13 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Extensions;
-using IdentityServer4.Models;
+using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Collections.Generic;
-using System;
+using IdentityServer4.Extensions;
+using IdentityServer4.Models;
 
 namespace IdentityServer4.Stores
 {
@@ -42,9 +42,9 @@ namespace IdentityServer4.Stores
         public Task<IEnumerable<PersistedGrant>> GetAllAsync(PersistedGrantFilter filter)
         {
             filter.Validate();
-            
+
             var items = Filter(filter);
-            
+
             return Task.FromResult(items);
         }
 
@@ -62,7 +62,7 @@ namespace IdentityServer4.Stores
             filter.Validate();
 
             var items = Filter(filter);
-            
+
             foreach (var item in items)
             {
                 _repository.TryRemove(item.Key, out _);

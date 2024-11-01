@@ -42,7 +42,7 @@ namespace IdentityServer4.Models
             {
                 names.Add(IdentityServerConstants.StandardScopes.OfflineAccess);
             }
-            
+
             return names;
         }
 
@@ -115,7 +115,7 @@ namespace IdentityServer4.Models
             {
                 return apis.First().AllowedAccessTokenSigningAlgorithms;
             }
-            
+
             var allAlgorithms = apis.Where(r => r.AllowedAccessTokenSigningAlgorithms.Any()).Select(r => r.AllowedAccessTokenSigningAlgorithms).ToList();
 
             // resources need to agree on allowed signing algorithms

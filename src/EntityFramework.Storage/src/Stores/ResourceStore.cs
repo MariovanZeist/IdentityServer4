@@ -25,7 +25,7 @@ namespace IdentityServer4.EntityFramework.Stores
         /// The DbContext.
         /// </summary>
         protected readonly IConfigurationDbContext Context;
-        
+
         /// <summary>
         /// The logger.
         /// </summary>
@@ -56,7 +56,7 @@ namespace IdentityServer4.EntityFramework.Stores
                 from apiResource in Context.ApiResources
                 where apiResourceNames.Contains(apiResource.Name)
                 select apiResource;
-            
+
             var apis = query
                 .Include(x => x.Secrets)
                 .Include(x => x.Scopes)
@@ -180,7 +180,7 @@ namespace IdentityServer4.EntityFramework.Stores
                 .Include(x => x.UserClaims)
                 .Include(x => x.Properties)
                 .AsNoTracking();
-            
+
             var scopes = Context.ApiScopes
                 .Include(x => x.UserClaims)
                 .Include(x => x.Properties)
@@ -192,9 +192,9 @@ namespace IdentityServer4.EntityFramework.Stores
                 (await scopes.ToArrayAsync()).Select(x => x.ToModel())
             );
 
-            Logger.LogDebug("Found {scopes} as all scopes, and {apis} as API resources", 
-                result.IdentityResources.Select(x=>x.Name).Union(result.ApiScopes.Select(x=>x.Name)),
-                result.ApiResources.Select(x=>x.Name));
+            Logger.LogDebug("Found {scopes} as all scopes, and {apis} as API resources",
+                result.IdentityResources.Select(x => x.Name).Union(result.ApiScopes.Select(x => x.Name)),
+                result.ApiResources.Select(x => x.Name));
 
             return result;
         }

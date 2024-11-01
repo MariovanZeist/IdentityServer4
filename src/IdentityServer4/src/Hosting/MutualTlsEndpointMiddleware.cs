@@ -86,7 +86,7 @@ namespace IdentityServer4.Hosting
                     }
                 }
             }
-            
+
             await _next(context);
         }
 

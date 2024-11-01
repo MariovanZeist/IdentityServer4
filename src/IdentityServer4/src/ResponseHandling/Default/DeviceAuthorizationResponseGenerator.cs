@@ -79,18 +79,18 @@ namespace IdentityServer4.ResponseHandling
             Logger.LogTrace("Creating response for device authorization request");
 
             var response = new DeviceAuthorizationResponse();
-            
+
             // generate user_code
             var userCodeGenerator = await UserCodeService.GetGenerator(
                 validationResult.ValidatedRequest.Client.UserCodeType ??
                 Options.DeviceFlow.DefaultUserCodeType);
-            
+
             var retryCount = 0;
 
             while (retryCount < userCodeGenerator.RetryLimit)
             {
                 var userCode = await userCodeGenerator.GenerateAsync();
-                
+
                 var deviceCode = await DeviceFlowCodeService.FindByUserCodeAsync(userCode);
                 if (deviceCode == null)
                 {
@@ -113,7 +113,7 @@ namespace IdentityServer4.ResponseHandling
                 // if url is relative, parse absolute URL
                 response.VerificationUri = baseUrl.RemoveTrailingSlash() + Options.UserInteraction.DeviceVerificationUrl;
             }
-            
+
             if (!string.IsNullOrWhiteSpace(Options.UserInteraction.DeviceVerificationUserCodeParameter))
             {
                 response.VerificationUriComplete =

@@ -2,13 +2,13 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityModel;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using IdentityModel;
+using IdentityServer4.Configuration;
 using IdentityServer4.Extensions;
 using Microsoft.Extensions.DependencyInjection;
-using IdentityServer4.Configuration;
 
 namespace IdentityServer4
 {
@@ -37,7 +37,7 @@ namespace IdentityServer4
             var claims = new HashSet<Claim>(new ClaimComparer());
             var context = tools.ContextAccessor.HttpContext;
             var options = context.RequestServices.GetRequiredService<IdentityServerOptions>();
-            
+
             if (additionalClaims != null)
             {
                 foreach (var claim in additionalClaims)
@@ -60,7 +60,7 @@ namespace IdentityServer4
             {
                 claims.Add(new Claim(JwtClaimTypes.Audience, string.Format(IdentityServerConstants.AccessTokenAudience, tools.ContextAccessor.HttpContext.GetIdentityServerIssuerUri().EnsureTrailingSlash())));
             }
-            
+
             if (!audiences.IsNullOrEmpty())
             {
                 foreach (var audience in audiences)

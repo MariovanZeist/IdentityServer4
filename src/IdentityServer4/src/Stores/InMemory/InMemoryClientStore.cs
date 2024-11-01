@@ -2,12 +2,12 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Extensions;
-using IdentityServer4.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IdentityServer4.Extensions;
+using IdentityServer4.Models;
 
 namespace IdentityServer4.Stores
 {
@@ -44,7 +44,7 @@ namespace IdentityServer4.Stores
                 from client in _clients
                 where client.ClientId == clientId
                 select client;
-            
+
             return Task.FromResult(query.SingleOrDefault());
         }
     }

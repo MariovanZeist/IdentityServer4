@@ -3,9 +3,9 @@
 
 
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 
@@ -32,7 +32,7 @@ namespace IdentityServer4.Extensions
 
             return nvc;
         }
-        
+
         public static string ToQueryString(this NameValueCollection collection)
         {
             if (collection.Count == 0)

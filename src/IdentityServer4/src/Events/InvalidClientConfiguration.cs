@@ -20,7 +20,7 @@ namespace IdentityServer4.Events
         public InvalidClientConfigurationEvent(Client client, string errorMessage)
             : base(EventCategories.Error,
                   "Invalid Client Configuration",
-                  EventTypes.Error, 
+                  EventTypes.Error,
                   EventIds.InvalidClientConfiguration,
                   errorMessage)
         {

@@ -2,12 +2,12 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityModel;
 using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using IdentityModel;
 
 #pragma warning disable 1591
 

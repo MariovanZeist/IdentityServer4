@@ -4,11 +4,11 @@
 
 using System;
 using System.Threading.Tasks;
+using IdentityServer4.Configuration;
+using IdentityServer4.Extensions;
 using IdentityServer4.Hosting;
 using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Http;
-using IdentityServer4.Extensions;
-using IdentityServer4.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace IdentityServer4.Endpoints.Results
@@ -44,7 +44,7 @@ namespace IdentityServer4.Endpoints.Results
         internal CustomRedirectResult(
             ValidatedAuthorizeRequest request,
             string url,
-            IdentityServerOptions options) 
+            IdentityServerOptions options)
             : this(request, url)
         {
             _options = options;

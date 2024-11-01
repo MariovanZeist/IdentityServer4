@@ -2,8 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System.Threading.Tasks;
 using System.Net;
+using System.Threading.Tasks;
 using IdentityServer4.Hosting;
 using Microsoft.AspNetCore.Http;
 
@@ -29,7 +29,7 @@ namespace IdentityServer4.Endpoints.Results
         /// <param name="statusCode">The status code.</param>
         public StatusCodeResult(HttpStatusCode statusCode)
         {
-            StatusCode = (int)statusCode;
+            StatusCode = (int) statusCode;
         }
 
         /// <summary>
