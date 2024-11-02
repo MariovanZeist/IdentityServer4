@@ -1,5 +1,5 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\HTP.Props" />
   <PropertyGroup>
     <PackageId>IdentityServer4.EntityFramework</PackageId>
     <TargetFrameworks>net7.0</TargetFrameworks>
@@ -38,8 +38,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\EntityFramework.Storage\src\IdentityServer4.EntityFramework.Storage.csproj" />
-    <ProjectReference Include="..\..\IdentityServer4\src\IdentityServer4.csproj" />
+      <PackageReference Include="IdentityServer4.EntityFramework.Storage" Version="7.*"/>
+      <PackageReference Include="IdentityServer4" Version="7.*"/>
   </ItemGroup>
 
   <ItemGroup>
